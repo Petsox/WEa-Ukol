@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <title>HTML – Přehled učiva</title>  
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+    h1 { color: #2c3e50; }
+    h2 { color: #34495e; border-bottom: 2px solid #ecf0f1; padding-bottom: 5px; }
+    h3 { color: #7f8c8d; }  
+    pre { background: #ecf0f1; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    code { background: #ecf0f1; padding: 2px 4px; border-radius: 3px; font-family: 'Courier New', Courier, monospace; }
+    ul, ol { margin-left: 20px; }
+    footer { text-align: center; margin-top: 40px; font-size: 0.9em; color: #7f8c8d; }
+    a { color: #2980b9; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    abbr { border-bottom: 1px dotted; cursor: help; }
+    dl { margin-top: 20px; }
+    dt { font-weight: bold; margin-top: 10px; }
+    dd { margin-left: 20px; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+
+    <header>
+        <h1>Přehled probraného učiva z předmětu WEa</h1>
+        <p>Tento dokument shrnuje hlavní témata probíraná v rámci výuky základů webových technologií.</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>1. Co je služba WWW</h2>
+            <p>
+                Služba <strong>World Wide Web</strong> (zkráceně <abbr title="World Wide Web">WWW</abbr>) je systém propojených hypertextových dokumentů dostupných prostřednictvím internetu. Webové stránky se zobrazují pomocí <em>webových prohlížečů</em> (např. Google Chrome, Mozilla Firefox, Safari).
+            </p>
+            <p>
+                WWW vznikla v roce <strong>1989</strong> v Evropské organizaci pro jaderný výzkum (CERN). Jejím autorem je <strong>Sir Tim Berners-Lee</strong>.
+            </p>
+
+            <h3>Základní principy fungování WWW</h3>
+            <ul>
+                <li><strong>Protokol HTTP/HTTPS:</strong> zajišťuje komunikaci mezi klientem (prohlížečem) a serverem.</li>
+                <li><strong>URL adresa:</strong> jednoznačně identifikuje webovou stránku (např. <code>https://www.example.com</code>).</li>
+                <li><strong>HTML:</strong> jazyk pro strukturování obsahu webových stránek.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. Základní struktura HTML dokumentu</h2>
+            <p>Každá HTML stránka má svou základní kostru. Příklad:</p>
+            <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="cs"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Název stránky&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    Obsah stránky
+  &lt;/body&gt;
+&lt;/html&gt;
+            </pre>
+            <p><strong>Vysvětlení jednotlivých částí:</strong></p>
+            <ul>
+                <li><code>&lt;!DOCTYPE html&gt;</code> – deklarace typu dokumentu (HTML5)</li>
+                <li><code>&lt;html&gt;</code> – obaluje celý dokument</li>
+                <li><code>&lt;head&gt;</code> – obsahuje metadata (např. kódování, název stránky)</li>
+                <li><code>&lt;body&gt;</code> – viditelná část stránky</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Unicode a HTML entity</h2>
+
+            <h3>Unicode</h3>
+            <p>
+                Unicode je standard, který umožňuje zapisovat znaky z různých jazyků a sad symbolů. Díky němu lze v HTML zobrazit znaky jako á, č, ř, ž nebo jiné speciální symboly.
+            </p>
+
+            <p>Použitím <code>&lt;meta charset="UTF-8"&gt;</code> v hlavičce dokumentu zajistíme podporu Unicode znaků.</p>
+
+            <h3>HTML entity</h3>
+            <p>HTML entity se používají pro zobrazení speciálních znaků, které by jinak byly vyhodnoceny jako součást kódu. Například:</p>
+
+            <ul>
+                <li><code>&amp;lt;</code> zobrazí znak: <strong>&lt;</strong></li>
+                <li><code>&amp;gt;</code> zobrazí znak: <strong>&gt;</strong></li>
+                <li><code>&amp;amp;</code> zobrazí znak: <strong>&amp;</strong></li>
+                <li><code>&amp;nbsp;</code> – nezalomitelná mezera</li>
+                <li><code>&amp;copy;</code> zobrazí: &copy;</li>
+                <li><code>&amp;hearts;</code> zobrazí: &hearts;</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. Blokové a inline elementy</h2>
+
+            <h3>Blokové elementy</h3>
+            <p>Blokové prvky tvoří nový řádek a obvykle obsahují větší části obsahu.</p>
+            <ul>
+                <li><code>&lt;div&gt;</code> – univerzální kontejner</li>
+                <li><code>&lt;p&gt;</code> – odstavec</li>
+                <li><code>&lt;h1&gt;</code> až <code>&lt;h6&gt;</code> – nadpisy</li>
+                <li><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code> – seznamy</li>
+                <li><code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;header&gt;</code> – sémantické části stránky</li>
+            </ul>
+
+            <h3>Inline elementy</h3>
+            <p>Inline prvky se zobrazují v rámci řádku a nezpůsobují jeho zalomení.</p>
+            <ul>
+                <li><code>&lt;span&gt;</code> – univerzální inline kontejner</li>
+                <li><code>&lt;strong&gt;</code> – zvýraznění textu (tučně)</li>
+                <li><code>&lt;em&gt;</code> – zvýraznění textu (kurzíva)</li>
+                <li><code>&lt;a&gt;</code> – odkaz</li>
+                <li><code>&lt;code&gt;</code> – označení části kódu</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Odkazy v HTML</h2>
+
+            <p>Odkazy se vytvářejí pomocí elementu <code>&lt;a&gt;</code>. Rozlišujeme dva základní typy:</p>
+
+            <h3>Externí odkaz</h3>
+            <p><a href="https://www.seznam.cz" target="_blank">Navštivte Seznam.cz</a></p>
+
+            <h3>Interní odkaz (v rámci stejné stránky)</h3>
+            <p><a href="#otazky">Přejít na sekci Otázky a odpovědi</a></p>
+
+            <h3>Struktura odkazu</h3>
+            <pre>
+&lt;a href="URL"&gt;Text odkazu&lt;/a&gt;
+            </pre>
+        </section>
+
+        <section>
+            <h2>6. Seznamy</h2>
+
+            <h3>Nečíslovaný seznam – <code>&lt;ul&gt;</code></h3>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ul>
+
+            <h3>Číslovaný seznam – <code>&lt;ol&gt;</code></h3>
+            <ol>
+                <li>Otevřít editor kódu</li>
+                <li>Vytvořit HTML soubor</li>
+                <li>Napsat kód</li>
+                <li>Spustit stránku v prohlížeči</li>
+            </ol>
+        </section>
+
+        <section id="otazky">
+            <h2>7. Otázky a odpovědi</h2>
+            <dl>
+                <dt>Co znamená zkratka HTML?</dt>
+                <dd>HTML = <strong>HyperText Markup Language</strong>, jazyk určený pro strukturování webových stránek.</dd>
+
+                <dt>Jaký je rozdíl mezi blokovým a inline elementem?</dt>
+                <dd>Blokové elementy zabírají celou šířku řádku, zatímco inline elementy pouze tolik místa, kolik potřebují.</dd>
+
+                <dt>Co dělá značka <code>&lt;meta charset="UTF-8"&gt;</code>?</dt>
+                <dd>Zajišťuje správné zobrazení národních znaků pomocí Unicode (např. ě, š, č apod.).</dd>
+
+                <dt>K čemu slouží element <code>&lt;a&gt;</code>?</dt>
+                <dd>Vytváří hypertextový odkaz na jinou stránku nebo část stejného dokumentu.</dd>
+            </dl>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 – Studijní materiál z HTML. Vytvořeno pro potřeby výuky webových technologií.</p>
+    </footer>
+
+</body>
+</html>
