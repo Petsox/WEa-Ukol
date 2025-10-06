@@ -1,55 +1,53 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <title>HTML – Přehled učiva</title>  
+  <title>HTML – Základy webových technologií</title>
   <meta charset="UTF-8">
   <style>
-    body { background: #162447; color: #eaeaea; font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-    h1 { color: #21e6c1; }
-    h2 { color: #fbff00; border-bottom: 2px solid #21e6c1; padding-bottom: 5px; }
-    h3 { color: #e43f5a; }
-    pre { background: #1b1b2f; color: #eaeaea; padding: 10px; border-radius: 5px; overflow-x: auto; }
-    code { background: #1f4068; color: #21e6c1; padding: 2px 4px; border-radius: 3px; font-family: 'Courier New', Courier, monospace; }
-    ul, ol { margin-left: 20px; }
-    footer { text-align: center; margin-top: 40px; font-size: 0.9em; color: #21e6c1; }
-    a { color: #21e6c1; text-decoration: none; }
-    a:hover { text-decoration: underline; color: #e43f5a; }
-    abbr { border-bottom: 1px dotted #e43f5a; cursor: help; }
-    dl { margin-top: 20px; }
-    dt { font-weight: bold; margin-top: 10px; color: #21e6c1; }
+    body { background: #232946; color: #fffffe; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: #121629; padding: 30px 0; text-align: center; }
+    header h1 { color: #eebbc3; margin-bottom: 10px; }
+    header p { color: #b8c1ec; font-size: 1.2em; }
+    nav { background: #393e6a; padding: 10px 0; text-align: center; }
+    nav a { color: #eebbc3; margin: 0 15px; font-weight: bold; text-decoration: none; }
+    nav a:hover { color: #fffffe; text-decoration: underline; }
+    #odkaz { color: #f64c72; }
+    main { max-width: 900px; margin: 40px auto; padding: 20px; background: #393e6a; border-radius: 12px; box-shadow: 0 2px 8px #12162944; }
+    section { margin-bottom: 40px; }
+    h2 { color: #eebbc3; border-bottom: 2px solid #eebbc3; padding-bottom: 5px; margin-top: 0; }
+    h3 { color: #b8c1ec; margin-top: 25px; }
+    ul, ol { margin-left: 25px; }
+    pre { background: #232946; color: #fffffe; padding: 12px; border-radius: 6px; overflow-x: auto; }
+    code { background: #121629; color: #eebbc3; padding: 2px 6px; border-radius: 3px; font-family: 'Consolas', 'Courier New', monospace; }
+    dl { margin-top: 15px; }
+    dt { font-weight: bold; color: #eebbc3; margin-top: 10px; }
     dd { margin-left: 20px; margin-bottom: 10px; }
+    .tip { background: #eebbc3; color: #232946; padding: 8px 12px; border-radius: 6px; margin: 15px 0; font-style: italic; }
+    footer { background: #121629; color: #b8c1ec; text-align: center; padding: 20px 0; margin-top: 40px; font-size: 0.95em; }
   </style>
 </head>
 <body>
 
-    <header>
-        <h1>Přehled probraného učiva z předmětu WEa</h1>
-        <p>Tento dokument shrnuje hlavní témata probíraná v rámci výuky základů webových technologií.</p>
-    </header>
+  <header>
+    <h1>Základy HTML a webových technologií</h1>
+    <p>Moderní průvodce pro začátečníky – struktura, principy, příklady a tipy</p>
+  </header>
 
-    <main>
+  <nav>
+    <a href="#struktura">Struktura HTML</a>
+    <a href="#principy">Principy WWW</a>
+    <a href="#elementy">Elementy HTML</a>
+    <a href="#odkazy">Odkazy</a>
+    <a href="#seznamy">Seznamy</a>
+    <a href="#unicode">Unicode &amp; Entity</a>
+    <a href="#faq">FAQ</a>
+  </nav>
 
-        <section>
-            <h2>1. Co je služba WWW</h2>
-            <p>
-                Služba <strong>World Wide Web</strong> (zkráceně <abbr title="World Wide Web">WWW</abbr>) je systém propojených hypertextových dokumentů dostupných prostřednictvím internetu. Webové stránky se zobrazují pomocí <em>webových prohlížečů</em> (např. Google Chrome, Mozilla Firefox, Safari).
-            </p>
-            <p>
-                WWW vznikla v roce <strong>1989</strong> v Evropské organizaci pro jaderný výzkum (CERN). Jejím autorem je <strong>Sir Tim Berners-Lee</strong>.
-            </p>
-
-            <h3>Základní principy fungování WWW</h3>
-            <ul>
-                <li><strong>Protokol HTTP/HTTPS:</strong> zajišťuje komunikaci mezi klientem (prohlížečem) a serverem.</li>
-                <li><strong>URL adresa:</strong> jednoznačně identifikuje webovou stránku (např. <code>https://www.example.com</code>).</li>
-                <li><strong>HTML:</strong> jazyk pro strukturování obsahu webových stránek.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>2. Základní struktura HTML dokumentu</h2>
-            <p>Každá HTML stránka má svou základní kostru. Příklad:</p>
-            <pre>
+  <main>
+    <section id="struktura">
+      <h2>1. Základní struktura HTML dokumentu</h2>
+      <p>Každá webová stránka začíná deklarací typu a obsahuje dvě hlavní části: <code>&lt;head&gt;</code> a <code>&lt;body&gt;</code>.</p>
+      <pre>
 &lt;!DOCTYPE html&gt;
 &lt;html lang="cs"&gt;
   &lt;head&gt;
@@ -60,121 +58,118 @@
     Obsah stránky
   &lt;/body&gt;
 &lt;/html&gt;
-            </pre>
-            <p><strong>Vysvětlení jednotlivých částí:</strong></p>
-            <ul>
-                <li><code>&lt;!DOCTYPE html&gt;</code> – deklarace typu dokumentu (HTML5)</li>
-                <li><code>&lt;html&gt;</code> – obaluje celý dokument</li>
-                <li><code>&lt;head&gt;</code> – obsahuje metadata (např. kódování, název stránky)</li>
-                <li><code>&lt;body&gt;</code> – viditelná část stránky</li>
-            </ul>
-        </section>
+      </pre>
+      <div class="tip">
+        <strong>Tip:</strong> Vždy používejte <code>&lt;meta charset="UTF-8"&gt;</code> pro správné zobrazení znaků!
+      </div>
+    </section>
 
-        <section>
-            <h2>3. Unicode a HTML entity</h2>
+    <section id="principy">
+      <h2>2. Principy fungování WWW</h2>
+      <ul>
+        <li><strong>HTTP/HTTPS:</strong> Protokoly pro přenos dat mezi klientem a serverem.</li>
+        <li><strong>URL:</strong> Jedinečná adresa každé stránky (např. <code>https://www.wikipedia.org</code>).</li>
+        <li><strong>Webový prohlížeč:</strong> Program pro zobrazení webových stránek (Chrome, Firefox, Edge).</li>
+        <li><strong>Server:</strong> Počítač, který poskytuje obsah webu.</li>
+      </ul>
+      <p>
+        Služba <abbr title="World Wide Web">WWW</abbr> byla vytvořena v CERNu roku 1989 Timem Berners-Leem.
+      </p>
+    </section>
 
-            <h3>Unicode</h3>
-            <p>
-                Unicode je standard, který umožňuje zapisovat znaky z různých jazyků a sad symbolů. Díky němu lze v HTML zobrazit znaky jako á, č, ř, ž nebo jiné speciální symboly.
-            </p>
+    <section id="elementy">
+      <h2>3. Elementy HTML</h2>
+      <h3>Blokové elementy</h3>
+      <ul>
+        <li><code>&lt;div&gt;</code> – univerzální kontejner</li>
+        <li><code>&lt;p&gt;</code> – odstavec</li>
+        <li><code>&lt;h1&gt;</code> až <code>&lt;h6&gt;</code> – nadpisy</li>
+        <li><code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;header&gt;</code></li>
+      </ul>
+      <h3>Inline elementy</h3>
+      <ul>
+        <li><code>&lt;span&gt;</code> – univerzální inline kontejner</li>
+        <li><code>&lt;strong&gt;</code> – tučný text</li>
+        <li><code>&lt;em&gt;</code> – kurzíva</li>
+        <li><code>&lt;a&gt;</code> – odkaz</li>
+        <li><code>&lt;code&gt;</code> – kód</li>
+      </ul>
+    </section>
 
-            <p>Použitím <code>&lt;meta charset="UTF-8"&gt;</code> v hlavičce dokumentu zajistíme podporu Unicode znaků.</p>
-
-            <h3>HTML entity</h3>
-            <p>HTML entity se používají pro zobrazení speciálních znaků, které by jinak byly vyhodnoceny jako součást kódu. Například:</p>
-
-            <ul>
-                <li><code>&amp;lt;</code> zobrazí znak: <strong>&lt;</strong></li>
-                <li><code>&amp;gt;</code> zobrazí znak: <strong>&gt;</strong></li>
-                <li><code>&amp;amp;</code> zobrazí znak: <strong>&amp;</strong></li>
-                <li><code>&amp;nbsp;</code> – nezalomitelná mezera</li>
-                <li><code>&amp;copy;</code> zobrazí: &copy;</li>
-                <li><code>&amp;hearts;</code> zobrazí: &hearts;</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>4. Blokové a inline elementy</h2>
-
-            <h3>Blokové elementy</h3>
-            <p>Blokové prvky tvoří nový řádek a obvykle obsahují větší části obsahu.</p>
-            <ul>
-                <li><code>&lt;div&gt;</code> – univerzální kontejner</li>
-                <li><code>&lt;p&gt;</code> – odstavec</li>
-                <li><code>&lt;h1&gt;</code> až <code>&lt;h6&gt;</code> – nadpisy</li>
-                <li><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code> – seznamy</li>
-                <li><code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;header&gt;</code> – sémantické části stránky</li>
-            </ul>
-
-            <h3>Inline elementy</h3>
-            <p>Inline prvky se zobrazují v rámci řádku a nezpůsobují jeho zalomení.</p>
-            <ul>
-                <li><code>&lt;span&gt;</code> – univerzální inline kontejner</li>
-                <li><code>&lt;strong&gt;</code> – zvýraznění textu (tučně)</li>
-                <li><code>&lt;em&gt;</code> – zvýraznění textu (kurzíva)</li>
-                <li><code>&lt;a&gt;</code> – odkaz</li>
-                <li><code>&lt;code&gt;</code> – označení části kódu</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>5. Odkazy v HTML</h2>
-
-            <p>Odkazy se vytvářejí pomocí elementu <code>&lt;a&gt;</code>. Rozlišujeme dva základní typy:</p>
-
-            <h3>Externí odkaz</h3>
-            <p><a href="https://www.seznam.cz" target="_blank">Navštivte Seznam.cz</a></p>
-
-            <h3>Interní odkaz (v rámci stejné stránky)</h3>
-            <p><a href="#otazky">Přejít na sekci Otázky a odpovědi</a></p>
-
-            <h3>Struktura odkazu</h3>
-            <pre>
+    <section id="odkazy">
+      <h2>4. Odkazy v HTML</h2>
+      <h3>Externí odkaz</h3>
+      <p><a id="odkaz" href="https://www.seznam.cz" target="_blank">Navštivte Seznam.cz</a></p>
+      <h3>Interní odkaz</h3>
+      <p><a id="odkaz" href="#faq">Přejít na sekci FAQ</a></p>
+      <h3>Struktura odkazu</h3>
+      <pre>
 &lt;a href="URL"&gt;Text odkazu&lt;/a&gt;
-            </pre>
-        </section>
+      </pre>
+    </section>
 
-        <section>
-            <h2>6. Seznamy</h2>
+    <section id="seznamy">
+      <h2>5. Seznamy</h2>
+      <h3>Nečíslovaný seznam (<code>&lt;ul&gt;</code>)</h3>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul>
+      <h3>Číslovaný seznam (<code>&lt;ol&gt;</code>)</h3>
+      <ol>
+        <li>Otevřít editor kódu</li>
+        <li>Vytvořit HTML soubor</li>
+        <li>Napsat kód</li>
+        <li>Spustit stránku v prohlížeči</li>
+      </ol>
+      <h3>Definiční seznam (<code>&lt;dl&gt;</code>)</h3>
+      <dl>
+        <dt>HTML</dt>
+        <dd>Jazyk pro tvorbu webových stránek.</dd>
+        <dt>CSS</dt>
+        <dd>Styly pro vzhled webu.</dd>
+        <dt>JavaScript</dt>
+        <dd>Programovací jazyk pro interaktivitu.</dd>
+      </dl>
+    </section>
 
-            <h3>Nečíslovaný seznam – <code>&lt;ul&gt;</code></h3>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-            </ul>
+    <section id="unicode">
+      <h2>6. Unicode a HTML entity</h2>
+      <h3>Unicode</h3>
+      <p>Standard pro zápis znaků z různých jazyků. V HTML používejte <code>&lt;meta charset="UTF-8"&gt;</code>.</p>
+      <h3>HTML entity</h3>
+      <ul>
+        <li><code>&amp;lt;</code> zobrazí <strong>&lt;</strong></li>
+        <li><code>&amp;gt;</code> zobrazí <strong>&gt;</strong></li>
+        <li><code>&amp;amp;</code> zobrazí <strong>&amp;</strong></li>
+        <li><code>&amp;copy;</code> zobrazí <strong>&copy;</strong></li>
+        <li><code>&amp;hearts;</code> zobrazí <strong>&hearts;</strong></li>
+      </ul>
+    </section>
 
-            <h3>Číslovaný seznam – <code>&lt;ol&gt;</code></h3>
-            <ol>
-                <li>Otevřít editor kódu</li>
-                <li>Vytvořit HTML soubor</li>
-                <li>Napsat kód</li>
-                <li>Spustit stránku v prohlížeči</li>
-            </ol>
-        </section>
+    <section id="faq">
+      <h2>7. Nejčastější otázky (FAQ)</h2>
+      <dl>
+        <dt>Co znamená HTML?</dt>
+        <dd>HyperText Markup Language – jazyk pro tvorbu webových stránek.</dd>
+        <dt>Jaký je rozdíl mezi blokovým a inline elementem?</dt>
+        <dd>Blokové elementy tvoří nový řádek, inline elementy se zobrazují v rámci řádku.</dd>
+        <dt>K čemu slouží <code>&lt;meta charset="UTF-8"&gt;</code>?</dt>
+        <dd>Zajišťuje správné zobrazení znaků pomocí Unicode.</dd>
+        <dt>Jak vytvořím odkaz?</dt>
+        <dd>Použijte <code>&lt;a href="adresa"&gt;Text odkazu&lt;/a&gt;</code>.</dd>
+        <dt>Co je CSS?</dt>
+        <dd>Cascading Style Sheets – jazyk pro stylování webových stránek.</dd>
+        <dt>Jak přidám obrázek?</dt>
+        <dd>Použijte <code>&lt;img src="adresa.jpg" alt="Popis"&gt;</code>.</dd>
+      </dl>
+    </section>
+  </main>
 
-        <section id="otazky">
-            <h2>7. Otázky a odpovědi</h2>
-            <dl>
-                <dt>Co znamená zkratka HTML?</dt>
-                <dd>HTML = <strong>HyperText Markup Language</strong>, jazyk určený pro strukturování webových stránek.</dd>
-
-                <dt>Jaký je rozdíl mezi blokovým a inline elementem?</dt>
-                <dd>Blokové elementy zabírají celou šířku řádku, zatímco inline elementy pouze tolik místa, kolik potřebují.</dd>
-
-                <dt>Co dělá značka <code>&lt;meta charset="UTF-8"&gt;</code>?</dt>
-                <dd>Zajišťuje správné zobrazení národních znaků pomocí Unicode (např. ě, š, č apod.).</dd>
-
-                <dt>K čemu slouží element <code>&lt;a&gt;</code>?</dt>
-                <dd>Vytváří hypertextový odkaz na jinou stránku nebo část stejného dokumentu.</dd>
-            </dl>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2025 – Studijní materiál z HTML. Vytvořeno pro potřeby výuky webových technologií.</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 – Studijní materiál z HTML. Vytvořeno pro výuku webových technologií. </p>
+  </footer>
 
 </body>
 </html>
